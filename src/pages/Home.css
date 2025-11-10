@@ -74,6 +74,14 @@ html {
   .dev-badge {
     animation: none !important;
   }
+
+  .feature-icon {
+    transition: none !important;
+  }
+
+  .feature-card:hover .feature-icon {
+    transform: none !important;
+  }
 }
 
 /* Header & Navigation */
@@ -557,7 +565,7 @@ main {
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  min-height: 250px;
+  min-height: 280px;
   cursor: pointer;
 }
 
@@ -588,9 +596,32 @@ main {
 }
 
 .feature-visual-bg {
-  height: 100px;
+  height: 140px;
   width: 100%;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.feature-icon-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.feature-icon {
+  color: white;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.15) rotate(5deg);
 }
 
 .inventory-bg {
@@ -615,6 +646,18 @@ main {
 
 .shopping-bg {
   background: linear-gradient(135deg, #a8b83d 0%, #8a9a32 100%);
+}
+
+/* Add subtle pattern overlay to feature backgrounds */
+.feature-visual-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+  z-index: 1;
 }
 
 .feature-content {
@@ -1196,6 +1239,20 @@ main {
   .feature-card,
   .stat-card {
     -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Feature icons mobile */
+  .feature-visual-bg {
+    height: 120px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .feature-card {
+    min-height: 260px;
   }
 }
 

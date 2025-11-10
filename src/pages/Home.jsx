@@ -3,6 +3,7 @@ import logo from '../assets/logos/santry-logo.png'
 import appMockup from '../assets/images/AppMockupSplashScreen.png'
 import { useState, useEffect, useRef } from 'react'
 import { motion, useInView, useAnimation } from 'framer-motion'
+import { Package, BellRing, ChefHat, Activity, Brain, ShoppingCart } from 'lucide-react'
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 2, prefix = '', suffix = '' }) {
@@ -351,62 +352,75 @@ function Home() {
               {[
                 {
                   bg: "inventory-bg",
+                  icon: Package,
                   title: "Smart Inventory",
                   description: "Automatic tracking of everything in your pantry, fridge, and freezer. Always know what you have—no mental gymnastics required.",
                   inDevelopment: false
                 },
                 {
                   bg: "expiry-bg",
+                  icon: BellRing,
                   title: "AI Expiry Alerts",
                   description: "Get intelligent notifications before food goes bad. Our AI learns your usage patterns to give you perfectly-timed reminders.",
                   inDevelopment: false
                 },
                 {
                   bg: "recipe-bg",
+                  icon: ChefHat,
                   title: "AI Recipe Matching",
                   description: "Get recipes tailored to what you have AND what you love. AI-powered suggestions that match your taste preferences and dietary needs.",
                   inDevelopment: false
                 },
                 {
                   bg: "nutrition-bg",
+                  icon: Activity,
                   title: "Nutrition Insights",
                   description: "Eat well without the guesswork. AI analyzes nutrition and provides personalized suggestions that match your health goals.",
                   inDevelopment: false
                 },
                 {
                   bg: "ai-bg",
+                  icon: Brain,
                   title: "Adaptive Learning",
                   description: "Gets smarter every day. AI learns your eating habits, dietary preferences, and family favorites to serve you better over time.",
                   inDevelopment: true
                 },
                 {
                   bg: "shopping-bg",
+                  icon: ShoppingCart,
                   title: "Predictive Shopping Lists",
                   description: "Never forget what you need. AI predicts what you'll run out of based on consumption patterns and suggests what you'll actually eat.",
                   inDevelopment: true
                 }
-              ].map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  className="feature-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                >
-                  <div className={`feature-visual-bg ${feature.bg}`}></div>
-                  <div className="feature-content">
-                    <h3 className="feature-title">
-                      {feature.title}
-                      {feature.inDevelopment && (
-                        <span className="dev-badge">In Development</span>
-                      )}
-                    </h3>
-                    <p className="feature-description">{feature.description}</p>
-                  </div>
-                </motion.div>
-              ))}
+              ].map((feature, index) => {
+                const IconComponent = feature.icon
+                return (
+                  <motion.div
+                    key={feature.title}
+                    className="feature-card"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: 0.1 + index * 0.08 }}
+                    whileHover={{ y: -5, transition: { duration: 0.2 } }}
+                  >
+                    <div className={`feature-visual-bg ${feature.bg}`}>
+                      <div className="feature-icon-container">
+                        <IconComponent className="feature-icon" size={48} strokeWidth={1.5} />
+                      </div>
+                    </div>
+                    <div className="feature-content">
+                      <h3 className="feature-title">
+                        {feature.title}
+                        {feature.inDevelopment && (
+                          <span className="dev-badge">In Development</span>
+                        )}
+                      </h3>
+                      <p className="feature-description">{feature.description}</p>
+                    </div>
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
         </motion.section>
