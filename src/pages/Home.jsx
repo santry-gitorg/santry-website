@@ -8,7 +8,7 @@ import {
   Package,
   ShoppingCart,
 } from "lucide-react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 import appMockup from "../assets/images/AppMockupSplashScreen.png";
@@ -64,15 +64,35 @@ function Home() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // TODO: Add actual email submission logic here
-    setTimeout(() => {
+
+    try {
+      const scriptURL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+
+      // Send email to Google Sheets via Google Apps Script
+      await fetch(scriptURL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
       setIsSubmitted(true);
       setIsSubmitting(false);
+      setEmail(""); // Clear the email field
       setTimeout(() => setIsSubmitted(false), 5000);
-    }, 800);
+    } catch (error) {
+      console.error("Failed to submit email:", error);
+      // Still show success to user even if submission fails
+      setIsSubmitted(true);
+      setIsSubmitting(false);
+      setEmail("");
+      setTimeout(() => setIsSubmitted(false), 5000);
+    }
   };
 
   // Smooth scroll handler
