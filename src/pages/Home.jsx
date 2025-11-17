@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 
 import appMockup from "../assets/images/AppMockupSplashScreen.png";
 import logo from "../assets/logos/santry-logo.png";
+import Header from "../components/Header";
 
 // Animated Counter Component
 function AnimatedCounter({ end, duration = 2, prefix = "", suffix = "" }) {
@@ -114,26 +115,7 @@ function Home() {
 
   return (
     <div className="home">
-      <header className="header">
-        <nav className="nav">
-          <div className="logo">
-            <img src={logo} alt="Santry Logo" className="logo-image" />
-          </div>
-
-          <ul className="nav-links">
-            <li>
-              <a href="#problem">Problem</a>
-            </li>
-            <li>
-              <a href="#mission">Mission</a>
-            </li>
-          </ul>
-
-          <a href="#waitlist" className="download-button">
-            Join Waitlist
-          </a>
-        </nav>
-      </header>
+      <Header />
 
       <main>
         {/* Hero Section */}
