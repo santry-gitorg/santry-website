@@ -55,7 +55,7 @@
   background: #FFFFFF;
 }
 
-.section-container {
+.support-page .section-container {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
@@ -265,7 +265,7 @@
   background: #f8f9fa;
 }
 
-.faq-section .section-container {
+.support-page .faq-section .section-container {
   grid-template-columns: 1fr;
   max-width: 900px;
 }
@@ -420,7 +420,7 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .section-container {
+  .support-page .section-container {
     grid-template-columns: 1fr;
   }
 

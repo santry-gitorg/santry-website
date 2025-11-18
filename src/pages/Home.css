@@ -466,99 +466,110 @@ main {
 /* ========== HOW IT WORKS SECTION ========== */
 .how-it-works {
   padding: 6rem 3rem;
-  background-color: #FFFFFF;
+  background: linear-gradient(180deg, #FFFFFF 0%, #f8f9fa 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.how-it-works::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(195, 211, 80, 0.3), transparent);
 }
 
 .methods-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  margin-top: 3rem;
+  gap: 3rem;
+  margin-top: 4rem;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .method-card {
-  background: #f8fdf9;
-  border: 2px solid #e8f5ea;
-  border-radius: 16px;
-  padding: 2.5rem;
+  background: #FFFFFF;
+  border: 1px solid rgba(195, 211, 80, 0.2);
+  border-radius: 24px;
+  padding: 0;
   text-align: center;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   cursor: pointer;
-}
-
-.method-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(195, 211, 80, 0.1), transparent);
-  transition: left 0.5s;
-}
-
-.method-card:hover::before {
-  left: 100%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .method-card:hover {
+  transform: translateY(-8px);
   border-color: #C3D350;
-  box-shadow: 0 12px 30px rgba(195, 211, 80, 0.2);
+  box-shadow: 0 20px 40px rgba(195, 211, 80, 0.15);
 }
 
 .method-visual {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 1.5rem;
-  border-radius: 50%;
+  width: 100%;
+  height: 180px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  transition: transform 0.3s ease;
+  transition: all 0.4s ease;
+  overflow: hidden;
 }
 
-.method-card:hover .method-visual {
-  transform: scale(1.1) rotate(5deg);
+.method-visual::before {
+  content: '';
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  transition: all 0.4s ease;
+}
+
+.method-card:hover .method-visual::before {
+  width: 180px;
+  height: 180px;
+}
+
+.method-visual::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.method-card:hover .method-visual::after {
+  width: 100px;
+  height: 100px;
 }
 
 .receipt-visual {
   background: linear-gradient(135deg, #C3D350 0%, #a8b83d 100%);
-  box-shadow: 0 10px 30px rgba(195, 211, 80, 0.3);
-  animation: pulse-pear 3s ease-in-out infinite;
 }
 
 .voice-visual {
   background: linear-gradient(135deg, #496F5D 0%, #3a5a4a 100%);
-  box-shadow: 0 10px 30px rgba(73, 111, 93, 0.3);
-  animation: pulse-green 3s ease-in-out infinite 0.5s;
 }
 
 .ai-visual {
-  background: linear-gradient(135deg, #001524 0%, #0a1e2b 100%);
-  box-shadow: 0 10px 30px rgba(0, 21, 36, 0.3);
-  animation: pulse-dark 3s ease-in-out infinite 1s;
-}
-
-@keyframes pulse-pear {
-  0%, 100% { box-shadow: 0 10px 30px rgba(195, 211, 80, 0.3); }
-  50% { box-shadow: 0 10px 40px rgba(195, 211, 80, 0.5); }
-}
-
-@keyframes pulse-green {
-  0%, 100% { box-shadow: 0 10px 30px rgba(73, 111, 93, 0.3); }
-  50% { box-shadow: 0 10px 40px rgba(73, 111, 93, 0.5); }
-}
-
-@keyframes pulse-dark {
-  0%, 100% { box-shadow: 0 10px 30px rgba(0, 21, 36, 0.3); }
-  50% { box-shadow: 0 10px 40px rgba(0, 21, 36, 0.5); }
+  background: linear-gradient(135deg, #5c8670 0%, #496F5D 100%);
 }
 
 .method-title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #001524;
-  margin-bottom: 1rem;
+  margin: 1.5rem 0 1rem;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -569,86 +580,85 @@ main {
 .method-description {
   font-size: 1rem;
   color: #496F5D;
-  line-height: 1.6;
+  line-height: 1.7;
+  padding: 0 2rem 2.5rem;
+  margin: 0;
 }
 
 /* ========== FEATURES SECTION ========== */
 .features {
   padding: 6rem 3rem;
-  background: linear-gradient(180deg, #f8fdf9 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #f8f9fa 0%, #FFFFFF 100%);
+  position: relative;
 }
 
 .features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .feature-card {
   background: #FFFFFF;
-  border: 2px solid #e8f5ea;
-  border-radius: 16px;
+  border: 1px solid rgba(0, 21, 36, 0.08);
+  border-radius: 24px;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  min-height: 280px;
   cursor: pointer;
-}
-
-.feature-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 16px;
-  padding: 2px;
-  background: linear-gradient(135deg, #C3D350, #496F5D);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.feature-card:hover::after {
-  opacity: 1;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
 }
 
 .feature-card:hover {
-  border-color: transparent;
-  box-shadow: 0 10px 25px rgba(73, 111, 93, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 21, 36, 0.1);
+  border-color: rgba(195, 211, 80, 0.3);
 }
 
 .feature-visual-bg {
-  height: 140px;
+  height: 120px;
   width: 100%;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  transition: all 0.4s ease;
 }
 
 .feature-icon-container {
   position: relative;
   z-index: 2;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  transition: all 0.4s ease;
+  backdrop-filter: blur(10px);
+}
+
+.feature-card:hover .feature-icon-container {
+  width: 90px;
+  height: 90px;
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .feature-icon {
   color: white;
-  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-  transition: transform 0.3s ease;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
+  transition: all 0.4s ease;
 }
 
 .feature-card:hover .feature-icon {
-  transform: scale(1.15) rotate(5deg);
+  transform: scale(1.1);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
 }
 
 .inventory-bg {
@@ -675,24 +685,12 @@ main {
   background: linear-gradient(135deg, #a8b83d 0%, #8a9a32 100%);
 }
 
-/* Add subtle pattern overlay to feature backgrounds */
-.feature-visual-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%);
-  z-index: 1;
-}
-
 .feature-content {
-  padding: 2rem;
+  padding: 2rem 2rem 2.5rem;
 }
 
 .feature-title {
-  font-size: 1.35rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: #001524;
   margin-bottom: 0.75rem;
@@ -700,12 +698,14 @@ main {
   align-items: center;
   flex-wrap: wrap;
   gap: 0.5rem;
+  line-height: 1.3;
 }
 
 .feature-description {
   font-size: 0.95rem;
   color: #496F5D;
-  line-height: 1.6;
+  line-height: 1.7;
+  margin: 0;
 }
 
 /* ========== MISSION SECTION ========== */
@@ -984,7 +984,15 @@ main {
   .methods-grid,
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    gap: 2.5rem;
+  }
+
+  .method-visual {
+    height: 160px;
+  }
+
+  .feature-visual-bg {
+    height: 110px;
   }
 
   /* Mission */
@@ -1131,12 +1139,47 @@ main {
   .methods-grid,
   .features-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
-  .method-card,
-  .feature-card {
-    padding: 1.75rem;
+  .method-visual {
+    height: 150px;
+  }
+
+  .method-title {
+    font-size: 1.3rem;
+    margin: 1.25rem 0 0.75rem;
+  }
+
+  .method-description {
+    padding: 0 1.75rem 2rem;
+    font-size: 0.95rem;
+  }
+
+  .feature-visual-bg {
+    height: 100px;
+  }
+
+  .feature-icon-container {
+    width: 70px;
+    height: 70px;
+  }
+
+  .feature-card:hover .feature-icon-container {
+    width: 75px;
+    height: 75px;
+  }
+
+  .feature-content {
+    padding: 1.75rem 1.75rem 2rem;
+  }
+
+  .feature-title {
+    font-size: 1.25rem;
+  }
+
+  .feature-description {
+    font-size: 0.9rem;
   }
 
   /* Mission */
@@ -1288,8 +1331,49 @@ main {
     height: 40px;
   }
 
-  .feature-card {
-    min-height: 260px;
+  .method-visual {
+    height: 140px;
+  }
+
+  .method-title {
+    font-size: 1.25rem;
+    margin: 1rem 0 0.75rem;
+  }
+
+  .method-description {
+    padding: 0 1.5rem 1.75rem;
+    font-size: 0.9rem;
+  }
+
+  .feature-visual-bg {
+    height: 90px;
+  }
+
+  .feature-icon-container {
+    width: 60px;
+    height: 60px;
+  }
+
+  .feature-card:hover .feature-icon-container {
+    width: 65px;
+    height: 65px;
+  }
+
+  .feature-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .feature-content {
+    padding: 1.5rem 1.5rem 1.75rem;
+  }
+
+  .feature-title {
+    font-size: 1.15rem;
+  }
+
+  .feature-description {
+    font-size: 0.85rem;
   }
 }
 
