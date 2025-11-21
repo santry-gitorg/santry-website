@@ -927,6 +927,31 @@ main {
   margin: 0;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #C3D350;
+  text-decoration: underline;
+}
+
+.footer-separator {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.875rem;
+}
+
 /* ========== RESPONSIVE DESIGN ========== */
 
 /* Tablet & Medium Screens */

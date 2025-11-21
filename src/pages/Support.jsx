@@ -437,6 +437,11 @@ function Support() {
             <p>
               &copy; 2025 Santry. Reducing food waste, one household at a time.
             </p>
+            <div className="footer-links">
+              <a href="/terms-and-conditions">Terms and Conditions</a>
+              <span className="footer-separator">•</span>
+              <a href="/privacy-policy">Privacy Policy</a>
+            </div>
           </div>
         </div>
       </footer>
